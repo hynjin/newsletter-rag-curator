@@ -3,7 +3,7 @@
 import { FormEvent, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
-import { createNewsletter } from "../lib/api";
+import { createNewsletter } from "../lib/newsletters-client";
 
 function parseTags(value: string): string[] {
   return value

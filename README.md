@@ -77,6 +77,15 @@ npm run dev
 
 The frontend is available at `http://localhost:3000`.
 
+If the frontend reports a missing `.next/server` chunk after code changes, stop the dev server,
+clear the Next.js cache, and restart it:
+
+```bash
+cd apps/web
+npm run clean
+npm run dev
+```
+
 ## Development Commands
 
 Backend:

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { getNewsletters, type Newsletter } from "../lib/api";
+import type { Newsletter } from "../lib/newsletters";
+import { getNewsletters } from "../lib/newsletters-server";
 import { NewsletterForm } from "./newsletter-form";
 
 function formatDate(value: string | null): string {
