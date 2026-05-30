@@ -109,11 +109,11 @@ Consequences:
 
 ## 2026-05-29: MVP Should Prioritize Manual Ingestion
 
-Status: Proposed
+Status: Accepted
 
 Decision:
 
-The MVP should likely begin with manual newsletter ingestion through pasted text or API submission before adding integrations.
+The MVP will begin with manual newsletter ingestion through pasted text in the app and a matching API submission path.
 
 Context:
 
@@ -123,4 +123,41 @@ Consequences:
 
 - The project can reach an end-to-end demo sooner.
 - RSS, email import, and URL scraping can remain post-MVP features.
-- This decision should be confirmed before implementation begins.
+- Phase 2 should prioritize a typed create-newsletter endpoint and a simple paste-based frontend ingestion form.
+
+## 2026-05-30: Use Local Docker Compose First, Defer Hosted Deployment
+
+Status: Accepted
+
+Decision:
+
+The project will optimize first for local development with Docker Compose running PostgreSQL and pgvector, plus separate local frontend and backend dev servers. Hosted deployment will be deferred until the portfolio polish phase.
+
+Context:
+
+The MVP needs a reproducible development loop before deployment hardening. Keeping deployment out of the early milestones reduces infrastructure work while the data model, ingestion pipeline, retrieval, and RAG behavior are still changing.
+
+Consequences:
+
+- README setup should prioritize local Docker, FastAPI, and Next.js commands.
+- Deployment configuration is not required before the application has an end-to-end MVP workflow.
+- Phase 6 can revisit deployment targets once the API, database schema, background needs, and frontend behavior are stable.
+
+## 2026-05-30: Use apps/api For The Backend App
+
+Status: Accepted
+
+Decision:
+
+The monorepo will place the FastAPI backend in `apps/api` and the Next.js frontend in `apps/web`.
+
+Context:
+
+Phase 1 implementation starts the project scaffold, and the requested structure uses `apps/api`
+instead of the earlier planning-note path `services/api`.
+
+Consequences:
+
+- Both runnable applications live under `apps/`, which keeps the monorepo layout compact.
+- Future backend services and repositories should be created inside `apps/api/app`.
+- Documentation should refer to `apps/api` as the backend application path.

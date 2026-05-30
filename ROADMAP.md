@@ -6,27 +6,29 @@ This roadmap is intentionally phased so the project can become useful quickly wh
 
 ## Phase 0: Planning
 
-Status: In progress
+Status: Complete
 
 - [x] Create `AGENTS.md`.
 - [x] Create `PRD.md`.
 - [x] Create `ROADMAP.md`.
 - [x] Create `DECISIONS.md`.
-- [ ] Confirm MVP ingestion path.
-- [ ] Confirm local development and deployment strategy.
+- [x] Confirm MVP ingestion path.
+- [x] Confirm local development and deployment strategy.
 
-## Phase 1: Project Scaffold
+## Phase 1: Project Foundation
+
+Status: Complete
 
 Goal: Establish a clean full-stack foundation.
 
-- [ ] Create frontend app with Next.js and TypeScript.
-- [ ] Create backend service with FastAPI and Python.
-- [ ] Add local PostgreSQL and pgvector setup.
-- [ ] Add environment variable examples.
-- [ ] Add basic developer setup instructions.
-- [ ] Add formatting, linting, and test commands.
-- [ ] Add health check endpoint.
-- [ ] Add frontend shell with app navigation.
+- [x] Create frontend app with Next.js and TypeScript.
+- [x] Create backend service with FastAPI and Python.
+- [x] Add local PostgreSQL and pgvector setup.
+- [x] Add environment variable examples.
+- [x] Add basic developer setup instructions.
+- [x] Add formatting, linting, and test commands.
+- [x] Add health check endpoint.
+- [x] Add frontend shell with app navigation.
 
 ## Phase 2: Data Model And Ingestion
 

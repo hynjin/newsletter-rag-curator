@@ -153,7 +153,11 @@ The user can save useful answers, summaries, themes, or extracted ideas for late
 
 ## Open Questions
 
-- Will ingestion begin with pasted text, uploaded files, URLs, RSS feeds, or email export?
-- Should the MVP include authentication or remain single-user local-first?
-- What deployment target should be used for the portfolio version?
 - What sample newsletter dataset should be included or documented for demos?
+
+Resolved during Phase 0:
+
+- MVP ingestion will begin with pasted text in the app and a matching API submission path.
+- The MVP will remain single-user and local-first; authentication is post-MVP.
+- Local development will use Docker Compose for PostgreSQL with pgvector, plus separate FastAPI and Next.js dev servers.
+- Hosted deployment is deferred until portfolio polish, after the end-to-end MVP workflow is stable.
