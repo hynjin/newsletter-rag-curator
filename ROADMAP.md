@@ -30,11 +30,11 @@ Goal: Establish a clean full-stack foundation.
 - [x] Add health check endpoint.
 - [x] Add frontend shell with app navigation.
 
-## Phase 2: Data Model And Ingestion
+## Phase 2: Newsletter Ingestion
 
-Status: In progress
+Status: Complete
 
-Goal: Store newsletter content in a retrieval-ready shape.
+Goal: Store raw newsletter source records and make them browsable.
 
 - [x] Design database schema for newsletters.
 - [x] Create newsletters table.
@@ -43,13 +43,19 @@ Goal: Store newsletter content in a retrieval-ready shape.
 - [x] Add ingestion tests.
 - [x] Add frontend ingestion flow.
 - [x] Add archive browsing UI.
-- [ ] Design database schema for chunks, embeddings, and saved insights.
+
+## Phase 3: Chunking And Embeddings
+
+Goal: Convert stored newsletters into retrieval-ready chunks with embeddings.
+
+- [ ] Design database schema for chunks and embeddings.
 - [ ] Add migrations.
 - [ ] Implement text chunking service.
 - [ ] Implement embedding generation service using OpenAI API.
 - [ ] Store embeddings with pgvector.
+- [ ] Add chunking and embedding tests.
 
-## Phase 3: Semantic Search
+## Phase 4: Semantic Search
 
 Goal: Let users find relevant newsletter passages through natural language.
 
@@ -62,7 +68,7 @@ Goal: Let users find relevant newsletter passages through natural language.
 - [ ] Build frontend search interface.
 - [ ] Add empty and weak-result states.
 
-## Phase 4: RAG Question Answering
+## Phase 5: RAG Question Answering
 
 Goal: Generate grounded answers with citations.
 
@@ -75,7 +81,7 @@ Goal: Generate grounded answers with citations.
 - [ ] Build frontend Q&A interface.
 - [ ] Show citations and source passages in the UI.
 
-## Phase 5: Curation
+## Phase 6: Curation
 
 Goal: Turn generated answers into reusable research artifacts.
 
@@ -85,7 +91,7 @@ Goal: Turn generated answers into reusable research artifacts.
 - [ ] Build saved insights UI.
 - [ ] Add tags or collections if scope allows.
 
-## Phase 6: Quality And Portfolio Polish
+## Phase 7: Quality And Portfolio Polish
 
 Goal: Make the project feel complete, credible, and easy to evaluate.
 
@@ -99,7 +105,7 @@ Goal: Make the project feel complete, credible, and easy to evaluate.
 - [ ] Document architecture and tradeoffs.
 - [ ] Prepare deployment or hosted demo if feasible.
 
-## Phase 7: Stretch Features
+## Phase 8: Stretch Features
 
 Goal: Deepen the project without compromising the MVP.
 
