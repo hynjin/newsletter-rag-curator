@@ -102,13 +102,14 @@ Implemented:
 
 - Monorepo app structure.
 - FastAPI health endpoint.
+- Newsletter create, list, and detail API endpoints.
+- Paste-based newsletter ingestion UI and archive list.
 - Next.js homepage that displays backend health.
 - PostgreSQL with pgvector local setup.
 - Environment variable examples.
 
 Not yet implemented:
 
-- Newsletter ingestion.
 - Embeddings.
 - RAG question answering.
 - Authentication.

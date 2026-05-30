@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type HealthResponse = {
   status: string;
   service: string;
@@ -45,8 +47,8 @@ export default async function Home() {
           <span>Phase 1 foundation</span>
         </div>
         <nav className="nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <span>Archive</span>
+          <Link href="/">Home</Link>
+          <Link href="/newsletters">Archive</Link>
           <span>Search</span>
           <span>Insights</span>
         </nav>
@@ -83,7 +85,7 @@ export default async function Home() {
       <section className="milestones" aria-label="Workspace areas">
         <div className="milestone">
           <strong>Archive</strong>
-          Newsletter records and source metadata.
+          <Link href="/newsletters">Newsletter records and source metadata.</Link>
         </div>
         <div className="milestone">
           <strong>Search</strong>

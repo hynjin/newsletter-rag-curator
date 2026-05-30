@@ -22,6 +22,13 @@ docs/
 - `docker-compose.yml` runs PostgreSQL with the `pgvector` extension enabled by
   `infra/postgres/init.sql`.
 
+## Phase 2 Ingestion
+
+- `newsletters` stores raw newsletter source records and metadata.
+- The backend exposes `POST /newsletters`, `GET /newsletters`, and `GET /newsletters/{id}`.
+- The frontend exposes a paste-based ingestion form and archive list at `/newsletters`.
+- Chunking, embeddings, OpenAI calls, and vector search are intentionally deferred.
+
 ## Future Boundaries
 
 - Ingestion, chunking, embeddings, retrieval, and generation should live behind backend service

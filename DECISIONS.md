@@ -161,3 +161,21 @@ Consequences:
 - Both runnable applications live under `apps/`, which keeps the monorepo layout compact.
 - Future backend services and repositories should be created inside `apps/api/app`.
 - Documentation should refer to `apps/api` as the backend application path.
+
+## 2026-05-30: Store Raw Newsletter Records Before Chunking
+
+Status: Accepted
+
+Decision:
+
+Phase 2 will first store complete newsletter source records in a `newsletters` table with metadata, tags, body text, and timestamps. Chunk, embedding, and saved insight tables will be designed after the raw source workflow is working.
+
+Context:
+
+The user requested newsletter ingestion while explicitly excluding embeddings, OpenAI integration, and vector search. Storing raw records first gives the application a useful archive workflow and a stable source table for later retrieval features.
+
+Consequences:
+
+- `POST /newsletters`, `GET /newsletters`, and `GET /newsletters/{id}` operate only on raw newsletter records.
+- Future chunk and embedding tables should reference `newsletters.id`.
+- Retrieval and RAG phases can build on persisted source content without changing the ingestion contract.

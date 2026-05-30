@@ -32,18 +32,22 @@ Goal: Establish a clean full-stack foundation.
 
 ## Phase 2: Data Model And Ingestion
 
+Status: In progress
+
 Goal: Store newsletter content in a retrieval-ready shape.
 
-- [ ] Design database schema for newsletters, chunks, embeddings, and saved insights.
+- [x] Design database schema for newsletters.
+- [x] Create newsletters table.
+- [x] Implement newsletter create and list endpoints.
+- [x] Implement newsletter detail endpoint.
+- [x] Add ingestion tests.
+- [x] Add frontend ingestion flow.
+- [x] Add archive browsing UI.
+- [ ] Design database schema for chunks, embeddings, and saved insights.
 - [ ] Add migrations.
-- [ ] Implement newsletter create and list endpoints.
-- [ ] Implement newsletter detail endpoint.
 - [ ] Implement text chunking service.
 - [ ] Implement embedding generation service using OpenAI API.
 - [ ] Store embeddings with pgvector.
-- [ ] Add ingestion tests.
-- [ ] Add frontend ingestion flow.
-- [ ] Add archive browsing UI.
 
 ## Phase 3: Semantic Search
 
