@@ -1,12 +1,13 @@
-import { API_BASE_URL, type Newsletter, type NewsletterListResponse } from "./newsletters";
+import { getApiBaseUrl, type Newsletter, type NewsletterListResponse } from "./newsletters";
 
 export async function getNewsletters(): Promise<Newsletter[]> {
-  const response = await fetch(`${API_BASE_URL}/newsletters`, {
+  const apiBaseUrl = getApiBaseUrl();
+  const response = await fetch(`${apiBaseUrl}/newsletters`, {
     cache: "no-store",
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to load newsletters: ${response.status}`);
+    throw new Error(`Failed to load newsletters: ${response.status} ${response.statusText}`);
   }
 
   const data = (await response.json()) as NewsletterListResponse;

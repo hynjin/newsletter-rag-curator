@@ -1,9 +1,10 @@
 "use client";
 
-import { API_BASE_URL, type Newsletter, type NewsletterPayload } from "./newsletters";
+import { getBrowserApiBaseUrl, type Newsletter, type NewsletterPayload } from "./newsletters";
 
 export async function createNewsletter(payload: NewsletterPayload): Promise<Newsletter> {
-  const response = await fetch(`${API_BASE_URL}/newsletters`, {
+  const apiBaseUrl = getBrowserApiBaseUrl();
+  const response = await fetch(`${apiBaseUrl}/newsletters`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

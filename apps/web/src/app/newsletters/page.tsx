@@ -4,16 +4,21 @@ import type { Newsletter } from "../lib/newsletters";
 import { getNewsletters } from "../lib/newsletters-server";
 import { NewsletterForm } from "./newsletter-form";
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 function formatDate(value: string | null): string {
   if (!value) {
     return "No date";
   }
 
-  return new Intl.DateTimeFormat("en", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(new Date(`${value}T00:00:00`));
+  const [year, month, day] = value.split("-").map(Number);
+  const monthLabel = MONTHS[month - 1];
+
+  if (!year || !monthLabel || !day) {
+    return value;
+  }
+
+  return `${monthLabel} ${day}, ${year}`;
 }
 
 export default async function NewslettersPage() {
@@ -22,8 +27,8 @@ export default async function NewslettersPage() {
 
   try {
     newsletters = await getNewsletters();
-  } catch {
-    loadError = "Could not load newsletters. Check that the API is running.";
+  } catch (error) {
+    loadError = "Could not load newsletters. Check that the FastAPI service is running.";
   }
 
   return (
