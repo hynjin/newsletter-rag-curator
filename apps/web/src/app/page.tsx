@@ -10,7 +10,8 @@ type HealthState =
   | { ok: false; message: string };
 
 async function getHealth(): Promise<HealthState> {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000";
+  const apiBaseUrl =
+    process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000";
 
   try {
     const response = await fetch(`${apiBaseUrl}/health`, {
@@ -59,8 +60,8 @@ export default async function Home() {
           <span className="eyebrow">Full-stack RAG workspace</span>
           <h1>Curate newsletter knowledge with grounded retrieval.</h1>
           <p className="lede">
-            A focused workspace for turning newsletter archives into searchable, source-backed
-            research notes.
+            A focused workspace for turning newsletter archives into searchable,
+            source-backed research notes.
           </p>
         </div>
 
@@ -68,7 +69,9 @@ export default async function Home() {
           <div className="status-row">
             <div>
               <p className="status-label">Backend</p>
-              <p className="status-value">{health.ok ? health.data.service : "Unavailable"}</p>
+              <p className="status-value">
+                {health.ok ? health.data.service : "Unavailable"}
+              </p>
             </div>
             <span className={`status-pill ${health.ok ? "ok" : "error"}`}>
               {health.ok ? "Healthy" : "Offline"}
@@ -85,7 +88,9 @@ export default async function Home() {
       <section className="milestones" aria-label="Workspace areas">
         <div className="milestone">
           <strong>Archive</strong>
-          <Link href="/newsletters">Newsletter records and source metadata.</Link>
+          <Link href="/newsletters">
+            Newsletter records and source metadata.
+          </Link>
         </div>
         <div className="milestone">
           <strong>Search</strong>
