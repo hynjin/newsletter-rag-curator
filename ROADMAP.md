@@ -46,14 +46,16 @@ Goal: Store raw newsletter source records and make them browsable.
 
 ## Phase 3: Chunking And Embeddings
 
+Status: Complete
+
 Goal: Convert stored newsletters into retrieval-ready chunks with embeddings.
 
-- [ ] Design database schema for chunks and embeddings.
-- [ ] Add migrations.
-- [ ] Implement text chunking service.
-- [ ] Implement embedding generation service using OpenAI API.
-- [ ] Store embeddings with pgvector.
-- [ ] Add chunking and embedding tests.
+- [x] Design database schema for chunks and embeddings.
+- [x] Add migrations.
+- [x] Implement text chunking service.
+- [x] Implement embedding generation service using Gemini API.
+- [x] Store embeddings with pgvector.
+- [x] Add chunking and embedding tests.
 
 ## Phase 4: Semantic Search
 
@@ -74,7 +76,7 @@ Goal: Generate grounded answers with citations.
 
 - [ ] Implement retrieval orchestration for questions.
 - [ ] Design prompt template for grounded answers.
-- [ ] Call OpenAI API for answer generation.
+- [ ] Call Gemini API for answer generation.
 - [ ] Include source citations in response format.
 - [ ] Handle insufficient context.
 - [ ] Add API tests for answer shape and failure modes.

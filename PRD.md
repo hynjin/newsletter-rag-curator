@@ -54,7 +54,7 @@ The user can save useful answers, summaries, themes, or extracted ideas for late
 
 - Manual newsletter ingestion through the app or API.
 - Backend ingestion endpoint that stores source content and chunks.
-- Embedding generation using the OpenAI API.
+- Embedding generation using the Gemini API.
 - PostgreSQL schema with pgvector embeddings.
 - Semantic search endpoint.
 - RAG question-answering endpoint with citations.
@@ -110,7 +110,7 @@ The user can save useful answers, summaries, themes, or extracted ideas for late
 ### Question Answering
 
 - The backend retrieves relevant chunks for a user question.
-- The backend sends context to the OpenAI API.
+- The backend sends context to the Gemini API.
 - The answer should cite source passages.
 - The answer should acknowledge insufficient context when retrieval is weak.
 
@@ -141,13 +141,13 @@ The user can save useful answers, summaries, themes, or extracted ideas for late
 - A reviewer can run the app locally from documented instructions.
 - A user can ingest sample newsletter content and ask questions about it.
 - Answers include citations to retrieved source passages.
-- The project clearly demonstrates FastAPI, PostgreSQL, pgvector, OpenAI API usage, Next.js, and TypeScript.
+- The project clearly demonstrates FastAPI, PostgreSQL, pgvector, Gemini API usage, Next.js, and TypeScript.
 - The codebase is organized, readable, and supported by meaningful tests.
 
 ## Risks
 
 - Retrieval quality may be poor without careful chunking and metadata handling.
-- OpenAI API costs can grow during repeated ingestion and testing.
+- Gemini API costs can grow during repeated ingestion and testing.
 - Full-stack scope can expand too quickly without milestone discipline.
 - Newsletter content formats may vary significantly.
 

@@ -74,7 +74,7 @@ Consequences:
 
 ## 2026-05-29: Use OpenAI API For AI Capabilities
 
-Status: Accepted
+Status: Superseded
 
 Decision:
 
@@ -179,3 +179,45 @@ Consequences:
 - `POST /newsletters`, `GET /newsletters`, and `GET /newsletters/{id}` operate only on raw newsletter records.
 - Future chunk and embedding tables should reference `newsletters.id`.
 - Retrieval and RAG phases can build on persisted source content without changing the ingestion contract.
+
+## 2026-06-04: Use Gemini API Behind An AI Provider Boundary
+
+Status: Accepted
+
+Decision:
+
+The application will use the Gemini API for embeddings and answer generation, accessed through a
+backend AI provider abstraction rather than direct SDK calls throughout the application.
+
+Context:
+
+The user requested a migration from OpenAI API usage to Gemini API usage while preserving existing
+routes, frontend behavior, database schema, and tests.
+
+Consequences:
+
+- `GEMINI_API_KEY` replaces `OPENAI_API_KEY` for AI features.
+- Gemini text generation uses the configured `GEMINI_GENERATION_MODEL`.
+- Gemini embeddings use the configured `GEMINI_EMBEDDING_MODEL` and request
+  `EMBEDDING_DIMENSIONS=1536` to match the existing `newsletter_chunks.embedding VECTOR(1536)`
+  column.
+- Existing embeddings from a different provider or model must be regenerated before semantic
+  search compares them with Gemini embeddings.
+
+## 2026-06-04: Use Synchronous Chunking And Embedding During Ingestion
+
+Status: Accepted
+
+Decision:
+
+Phase 3 will synchronously chunk newsletter body text and generate embeddings during `POST /newsletters`.
+
+Context:
+
+The project does not yet have a background job system, and the MVP benefits from a simple, verifiable ingestion pipeline before semantic search is implemented.
+
+Consequences:
+
+- Newsletter creation now creates `newsletter_chunks` rows and stores pgvector embeddings when `GEMINI_API_KEY` is configured.
+- If embedding generation fails, the newsletter and chunks are preserved and chunks are marked `failed`.
+- A future phase can move embedding generation to a background job without changing the public newsletter API contract.

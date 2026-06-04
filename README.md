@@ -11,7 +11,7 @@ PostgreSQL database with pgvector enabled.
 - Frontend: Next.js, TypeScript
 - Backend: FastAPI, Python
 - Database: PostgreSQL with pgvector
-- AI: OpenAI API in later phases
+- AI: Gemini API through a backend provider abstraction
 
 ## Repository Structure
 
@@ -54,6 +54,22 @@ uvicorn app.main:app --reload
 ```
 
 The backend health endpoint is available at `http://localhost:8000/health`.
+
+To enable Phase 3 embedding generation, set `GEMINI_API_KEY` in `apps/api/.env`. If it is
+missing, newsletter records and chunks are still saved, but chunks are marked as failed for
+embedding.
+
+The local schema stores embeddings as `VECTOR(1536)`. Gemini embedding models default to 3072
+dimensions, so the backend requests `EMBEDDING_DIMENSIONS=1536` to keep the existing database shape.
+If you change embedding dimensions or switch embedding spaces, add a migration and re-embed stored
+chunks before comparing vectors.
+
+For an existing local database created before Phase 3, apply the migration once:
+
+```bash
+docker compose exec -T db psql -U newsletter -d newsletter_rag_curator \
+  -f /dev/stdin < infra/postgres/migrations/001_create_newsletter_chunks.sql
+```
 
 If your virtual environment was created with Python 3.9 or older, recreate it with Python 3.11+:
 
@@ -112,6 +128,7 @@ Implemented:
 - Monorepo app structure.
 - FastAPI health endpoint.
 - Newsletter create, list, and detail API endpoints.
+- Newsletter chunking and embedding storage.
 - Paste-based newsletter ingestion UI and archive list.
 - Next.js homepage that displays backend health.
 - PostgreSQL with pgvector local setup.
@@ -119,6 +136,6 @@ Implemented:
 
 Not yet implemented:
 
-- Embeddings.
+- Semantic search.
 - RAG question answering.
 - Authentication.

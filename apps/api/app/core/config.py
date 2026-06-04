@@ -16,7 +16,13 @@ class Settings(BaseSettings):
     database_url: str = (
         "postgresql://newsletter:newsletter@localhost:5432/newsletter_rag_curator"
     )
-    openai_api_key: str = ""
+    gemini_api_key: str = ""
+    gemini_generation_model: str = "gemini-3.5-flash"
+    gemini_embedding_model: str = "gemini-embedding-001"
+    embedding_dimensions: int = 1536
+    chunk_target_tokens: int = 800
+    chunk_max_tokens: int = 1000
+    chunk_overlap_tokens: int = 120
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

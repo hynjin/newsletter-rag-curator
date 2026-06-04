@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.db import get_db
+from app.repositories.newsletter_chunks import NewsletterChunkRepository
 from app.repositories.newsletters import NewsletterRepository
 from app.schemas.newsletter import NewsletterCreate, NewsletterListResponse, NewsletterRead
 from app.services.newsletters import NewsletterService
@@ -10,7 +11,10 @@ router = APIRouter(prefix="/newsletters", tags=["newsletters"])
 
 
 def get_newsletter_service(db: Session = Depends(get_db)) -> NewsletterService:
-    return NewsletterService(NewsletterRepository(db))
+    return NewsletterService(
+        repository=NewsletterRepository(db),
+        chunk_repository=NewsletterChunkRepository(db),
+    )
 
 
 @router.post("", response_model=NewsletterRead, status_code=status.HTTP_201_CREATED)

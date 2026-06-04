@@ -11,7 +11,7 @@ The project should demonstrate strong Python AI engineering skills, practical fu
 - Frontend: Next.js, TypeScript
 - Backend: FastAPI, Python
 - Database: PostgreSQL with pgvector
-- AI: OpenAI API
+- AI: Gemini API
 - Retrieval: embeddings, semantic search, metadata filtering, source-grounded responses
 
 ## Working Principles

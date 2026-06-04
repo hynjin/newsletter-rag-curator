@@ -16,6 +16,7 @@ SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 def init_db() -> None:
     from app.models import newsletter  # noqa: F401
+    from app.models import newsletter_chunk  # noqa: F401
 
     Base.metadata.create_all(bind=engine)
 
